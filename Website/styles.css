@@ -1,0 +1,338 @@
+/* Add a basic reset */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+/* Style the navigation bar */
+.navbar {
+	background: #0595b9;
+	overflow: hidden;
+}
+
+/* Navbar links */
+.nav-links li {
+	display: inline;
+	list-style-type: none;
+}
+
+.nav-links a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+/* Change the color of links on hover */
+.nav-links a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+/* Responsive navigation bar */
+@media screen and (max-width: 600px) {
+	.nav-links a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
+
+body {
+	font-family: Arial, sans-serif;
+}
+/* Previous CSS code */
+
+/* Style the anniversary section */
+/* Previous CSS code */
+/* Previous CSS code */
+
+/* Style the anniversary section */
+.anniversary-section {
+	position: relative;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+/* Style the anniversary GIF image to cover the entire section */
+.anniversary-gif {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover; /* This will cover the entire viewport while preserving the image's aspect ratio */
+	z-index: -1; /* Ensures the image stays in the background */
+}
+
+/* Style the anniversary message box for absolute positioning */
+.anniversary-message-box {
+	position: absolute;
+	width: 100%; /* Take the full width of the section */
+	text-align: center; /* Center the text horizontally */
+	top: 50%; /* Position at the center vertically */
+	transform: translateY(-50%); /* Center the div with respect to its height */
+	z-index: 10; /* Ensures the message is above the image */
+}
+
+/* Style the anniversary message */
+.anniversary-message {
+	display: inline-block;
+	background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+	color: #333;
+	padding: 1rem;
+	border-radius: 5px;
+	font-size: 1.5rem;
+}
+
+/* Keyframes for the fade-in animation */
+@keyframes pop {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+img.pop {
+	animation: pop 0.6s ease forwards;
+}
+
+/* Additional CSS for the rest of your content */
+
+/* Additional CSS for the rest of your content */
+
+.timeline {
+	position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+/*
+/* Timeline containers */
+.container {
+	padding: 10px 40px;
+	position: relative;
+	background-color: inherit;
+	width: 50%;
+}
+
+/* Left containers */
+.container.left {
+	left: 0;
+}
+
+/* Right containers */
+.container.right {
+	left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.container.left::after {
+	content: " ";
+	height: 0;
+	position: absolute;
+	top: 22px;
+	width: 0;
+	z-index: 1;
+	right: 30px;
+	border: medium solid white;
+	border-width: 10px 0 10px 10px;
+	border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.container.right::after {
+	content: " ";
+	height: 0;
+	position: absolute;
+	top: 22px;
+	width: 0;
+	z-index: 1;
+	left: 30px;
+	border: medium solid white;
+	border-width: 10px 10px 10px 0;
+	border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.container.right::before {
+	left: -16px;
+}
+
+/* The actual content */
+.content {
+	padding: 20px 30px;
+	background-color: white;
+	position: relative;
+	border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+	/* Place the timelime to the left */
+	.timeline::after {
+		left: 31px;
+	}
+
+	/* Full-width containers */
+	.container {
+		width: 100%;
+		padding-left: 70px;
+		padding-right: 25px;
+	}
+
+	/* Make sure that all arrows are pointing leftwards */
+	.container::before,
+	.container::after {
+		left: 60px;
+		border: medium solid white;
+		border-width: 10px 10px 10px 0;
+		border-color: transparent white transparent transparent;
+	}
+
+	/* Align the image containers to the left */
+	.container.left,
+	.container.right {
+		left: 0;
+	}
+}
+/* Other styles... */
+
+/* Resize images to a max width of 100% of their container and ensure they don't stretch beyond their intrinsic size */
+.content img {
+	max-width: 100%;
+	height: auto; /* This ensures that the aspect ratio of the images is maintained */
+	display: block; /* To prevent inline spacing issues */
+	margin: 0 auto; /* Center align the images */
+}
+
+/* Timeline line */
+.timeline::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 0;
+	width: 3px; /* Width of the timeline line */
+	background-color: #cccccc; /* Color of the timeline line */
+	z-index: 0; /* Ensure it doesn't overlap the content */
+}
+
+/* Ensure the content div has a position relative to its normal position to properly place the pseudo-elements */
+.container::after,
+.container::before {
+	content: "";
+	position: absolute;
+	width: 25px; /* Width of the circle */
+	height: 25px; /* Height of the circle */
+	border-radius: 50%; /* Make it round */
+	background: white;
+	border: 3px solid #cccccc; /* Border color matches the line */
+	top: 20px; /* Position it at the top of the content */
+	left: 50%; /* Center it horizontally */
+	transform: translateX(-50%);
+	z-index: 1; /* Ensure it's above the line */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+	.timeline::before {
+		left: 10px; /* Adjust line position for mobile */
+		transform: translateX(0);
+	}
+
+	.container::before {
+		left: 10px; /* Adjust circle position for mobile */
+		transform: translateX(0);
+	}
+
+	/* Resize images on smaller screens to a smaller percentage if necessary */
+	.content img {
+		max-width: 80%; /* Adjust image size for mobile */
+	}
+}
+/* Previous CSS code */
+
+/* Add a smooth background gradient */
+body {
+	background: linear-gradient(
+		to right,
+		#84d2ff,
+		#8d5acd
+	); /* Example gradient */
+	font-family: Arial, sans-serif;
+}
+
+/* Animation keyframes for the pop effect */
+@keyframes pop {
+	0% {
+		transform: scale(0.95);
+		opacity: 0.6;
+	}
+	50% {
+		transform: scale(1.05);
+		opacity: 0.8;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/* Initial state of the content */
+.content {
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(0.95);
+	transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* State of the content when it's in the viewport */
+.content.visible {
+	visibility: visible;
+	opacity: 1;
+	transform: scale(1);
+	animation: pop 0.6s;
+}
+
+/* Additional styles for the timeline */
+.timeline {
+	padding: 50px 0; /* Add padding to the top and bottom of the timeline */
+}
+
+/* Add styles for the timeline line */
+.timeline::before {
+	/* Previous styles */
+	background-color: #ffffff; /* Change the color of the line if necessary */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+	/* Previous responsive styles */
+}
+/* Previous CSS code */
+
+/* Additional CSS for the rest of your content */
+.message-section {
+	background-color: #f0f0f0;
+	padding: 20px;
+	text-align: center;
+}
+
+.message {
+	font-size: 1.5em;
+	color: #333;
+}
+.footer {
+	background-color: #333;
+	color: #fff;
+	padding: 10px 0;
+	text-align: center;
+}
